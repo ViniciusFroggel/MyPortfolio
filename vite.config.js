@@ -5,6 +5,6 @@ export default defineConfig({
   plugins: [react()],
   base: '/meu-repo/', // se for GitHub Pages
   optimizeDeps: {
-    include: ['aos'] // <- força a inclusão do AOS no build
+    include: ['aos'] // força Vite a pré-bundlar o AOS
   }
 });

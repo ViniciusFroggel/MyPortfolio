@@ -5,7 +5,7 @@ import About from './components/About';
 import Projects from './components/Projects';
 import Footer from './components/Footer';
 import AOS from 'aos';
-import 'aos/dist/aos.css'; // Importa os estilos do AOS
+import 'aos/dist/aos.css'; // MUITO IMPORTANTE
 
 function App() {
   useEffect(() => {
