@@ -1,0 +1,7 @@
+/* Estilos globais ou resets básicos */
+/* Este arquivo pode ser mantido mínimo, pois a maior parte do CSS está em style.css */
+body {
+  margin: 0;
+  /* As cores de fundo e texto são definidas em style.css e controladas pelo tema */
+  /* font-family é definido em style.css */
+}

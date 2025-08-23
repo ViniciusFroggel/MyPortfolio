@@ -1,0 +1,799 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap');
+
+/* ==========================================================================
+   Variáveis CSS (Design Tokens)
+   ========================================================================== */
+:root {
+  /* Cores */
+  --bg-dark: #1a1a2e; /* Fundo escuro mais profundo */
+  --bg-light: #f0f2f5; /* Fundo claro suave */
+  --text-dark: #e0e0e0; /* Texto claro para fundo escuro */
+  --text-light: #333333; /* Texto escuro para fundo claro */
+  --primary: #00b894; /* Verde vibrante */
+  --primary-hover: #00947a; /* Verde mais escuro para hover */
+  --secondary: #8a8a8a; /* Cinza neutro */
+  --accent: #ff6b6b; /* Cor de destaque para detalhes */
+  --card-bg-dark: #2c2c44; /* Fundo de card escuro */
+  --card-bg-light: #ffffff; /* Fundo de card claro */
+  --navbar-bg-dark: #161628; /* Fundo da navbar escuro */
+  --navbar-bg-light: #ffffff; /* Fundo da navbar claro */
+  --separator: #444444; /* Separador mais visível */
+
+  /* Tipografia */
+  --font-primary: 'Poppins', sans-serif;
+  --font-secondary: 'Montserrat', sans-serif; /* Para títulos ou destaques */
+
+  /* Tamanhos de Fonte Base (para escalabilidade com rem) */
+  --font-size-base: 16px; /* Base para 1rem */
+  --font-size-sm: 0.875rem; /* 14px */
+  --font-size-md: 1rem;    /* 16px */
+  --font-size-lg: 1.125rem; /* 18px */
+  --font-size-xl: 1.25rem;  /* 20px */
+  --font-size-2xl: 1.5rem;  /* 24px */
+  --font-size-3xl: 1.875rem; /* 30px */
+  --font-size-4xl: 2.25rem;  /* 36px */
+  --font-size-5xl: 3rem;     /* 48px */
+  --font-size-6xl: 3.75rem;  /* 60px */
+
+  /* Tamanhos de Ícones Sociais (AJUSTADO PARA SER BEM PEQUENO) */
+  --icon-size-base: 1.1rem; /* 17.6px - Tamanho padrão para ícones sociais */
+  --icon-size-lg: 1.2rem;   /* 19.2px - Um pouco maior para desktop */
+  --icon-size-sm: 0.9rem;   /* 14.4px - Menor para mobile */
+
+  /* Espaçamentos */
+  --spacing-xs: 0.5rem; /* 8px */
+  --spacing-sm: 1rem;   /* 16px */
+  --spacing-md: 1.5rem; /* 24px */
+  --spacing-lg: 2rem;   /* 32px */
+  --spacing-xl: 3rem;   /* 48px */
+  --spacing-2xl: 4rem;  /* 64px */
+
+  /* Bordas e Sombras */
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 16px;
+  --shadow-light: 0 4px 12px rgba(0, 0, 极端的, 0.1);
+  --shadow-dark: 0 6px 18px rgba(0, 0, 0, 0.3);
+
+  /* Transições */
+  --极端的-fast: 0.2s ease-in-out;
+  --transition-medium: 0.3s ease-in-out;
+  --transition-slow: 0.5s ease-in-out;
+}
+
+/* ==========================================================================
+   Reset e Estilos Base
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+html {
+  font-size: var(--font-size-base); /* Define a base para 1rem */
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+  transition: background-color var(--transition-slow), color var(--transition-slow);
+  line-height: 1.6;
+  overflow-x: hidden; /* Evita rolagem horizontal indesejada */
+}
+
+/* ==========================================================================
+   Tema Claro/Escuro - ADIÇÕES PARA TEXTO PRETO NO TEMA CLARO
+   ========================================================================== */
+body.light-theme {
+  background-color: var(--bg-light);
+  color: #000000 !important; /* Texto preto para todo o body */
+}
+
+body.light-theme .navbar {
+  background-color: var(--navbar-bg-light);
+  box-shadow: var(--shadow-light);
+}
+
+body.light-theme .navbar .logo,
+body.light-theme .navbar nav ul li a,
+body.light-theme .theme-toggle {
+  color: #000000 !important; /* Texto preto na navbar */
+}
+
+body.light-theme .navbar nav ul li a:hover {
+  color: var(--primary) !important; /* Mantém a cor primária no hover */
+}
+
+body.light-theme .card,
+body.light-theme .card-sobre {
+  background-color: var(--card-bg-light);
+  color: #000000 !important; /* Texto preto nos cards */
+  box-shadow: var(--shadow-light);
+}
+
+body.light-theme footer {
+  background-color: var(--navbar-bg-light);
+  color: #000000 !important; /* Texto preto no footer */
+  box-shadow: var(--shadow-light);
+}
+
+/* Textos específicos que precisam ser pretos no tema claro */
+body.light-theme .home-text h1,
+body.light-theme .home-text p,
+body.light-theme .sobre-text p,
+body.light-theme .card h3,
+body.light-theme .card p,
+body.light-theme .card-sobre h3,
+body.light-theme .card-sobre p {
+  color: #000000 !important;
+}
+
+body.light-theme .social-icons-home a {
+  color: #000000 !important; /* Ícones sociais pretos */
+}
+
+body.light-theme .social-icons-home a:hover {
+  color: var(--primary) !important; /* Mantém a cor primária no hover */
+}
+
+/* ==========================================================================
+   Navbar
+   ========================================================================== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md) var(--spacing-2xl);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: var(--navbar-bg-dark);
+  z-index: 999;
+  box-shadow: var(--shadow-dark);
+  transition: background-color var(--transition-medium), box-shadow var(--transition-medium);
+}
+
+.navbar .logo {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 0.5px;
+}
+
+.navbar nav ul {
+  display: flex;
+  gap: var(--spacing-xl);
+  list-style: none;
+}
+
+.navbar nav ul li a {
+  color: var(--text-dark);
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  padding: 6px 0;
+  transition: color var(--transition-fast);
+}
+
+.navbar nav ul li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary);
+  left: 0; bottom: -5px;
+  transition: width var(--transition-medium);
+}
+
+.navbar nav ul li a.active::after,
+.navbar nav ul li a:hover::after {
+  width: 100%;
+}
+
+.navbar nav ul li a:hover {
+  color: var(--primary);
+}
+
+.navbar nav ul li .contact-btn {
+  background-color: var(--primary);
+  padding: 0.625rem 1.25rem;
+  border-radius: var(--border-radius-md);
+  font-weight: 600;
+  text-transform: uppercase;
+  color: white;
+  border: 1px solid var(--primary);
+  transition: background-color var(--transition-medium), border var(--transition-medium), color var(--transition-medium);
+}
+
+.navbar nav ul li .contact-btn:hover {
+  background-color: transparent;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
+
+/* Menu Toggle (Hamburguer) */
+.menu-toggle {
+  display: none; /* Escondido por padrão em telas maiores */
+  font-size: var(--font-size-2xl);
+  color: var(--text-dark);
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+.menu-toggle:hover {
+  color: var(--primary);
+}
+
+.theme-toggle {
+  font-size: var(--font-size-2xl);
+  color: var(--text-dark);
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+.theme-toggle:hover {
+  color: var(--primary);
+}
+
+/* ==========================================================================
+   Seções Gerais
+   ========================================================================== */
+.section {
+  position: relative;
+  /* Padding superior ajustado para compensar a navbar fixa */
+  padding: calc(var(--spacing-2xl) * 2 + 20px) var(--spacing-2xl) var(--spacing-2xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center; /* Centraliza o texto por padrão */
+}
+.section:not(:first-of-type)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: var(--spacing-2xl);
+  right: var(--spacing-2xl);
+  height: 1px;
+  background-color: var(--separator);
+}
+
+/* ==========================================================================
+   Seção Home
+   ========================================================================== */
+.home-content {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2xl);
+  flex-wrap: wrap;
+  max-width: 1200px;
+  width: 100%;
+  margin-top: 0;
+  justify-content: center; /* Centraliza itens em telas menores */
+}
+
+.home-text {
+  flex: 1 1 450px;
+  text-align: left; /* Alinha texto à esquerda em telas maiores */
+}
+
+.home-text h1 {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-5xl);
+  margin-bottom: var(--spacing-md);
+  color: var(--text-dark);
+  line-height: 1.2;
+}
+.home-text h1 span {
+  color: var(--primary);
+}
+
+.home-text p {
+  margin-bottom: var(--spacing-xl);
+  font-size: var(--font-size-lg);
+  color: var(--secondary);
+  max-width: 600px;
+}
+
+.home-buttons {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+}
+
+.btn {
+  background-color: var(--primary);
+  color: white;
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--border-radius-md);
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color var(--transition-medium), transform var(--transition-fast);
+  box-shadow: 极端的 4px 8px rgba(0, 184, 148, 0.3);
+}
+
+.btn:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 184, 148, 0.4);
+}
+
+.social-icons-home {
+  display: flex;
+  gap: var(--spacing-sm); /* Espaçamento entre os ícones (16px) - Reduzido */
+  justify-content: flex-start; /* Alinha à esquerda por padrão */
+  align-items: center;
+}
+
+.social-icons-home a {
+  color: var(--text-dark);
+  font-size: var(--icon-size-lg); /* Usar a nova variável para ícones maiores */
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.social-icons-home a:hover {
+  color: var(--primary);
+  transform: translateY(-2px); /* Efeito de "levantar" mais sutil */
+}
+
+.home-img {
+  flex: 1 1 400px;
+  text-align: center;
+  position: relative;
+}
+
+.profile-img {
+  width: 100%; /* Ocupa 100% do contêiner flex */
+  max-width: 400px; /* Limita o tamanho máximo */
+  height: auto; /* Mantém a proporção */
+  aspect-ratio: 400 / 480; /* Define a proporção para evitar distorção */
+  object-fit: cover;
+  border-radius: var(--border-radius-lg);
+  border: 4px solid var(--primary);
+  box-shadow: var(--shadow-dark);
+  transition: transform var(--transition-medium);
+}
+.profile-img:hover {
+  transform: scale(1.02);
+}
+
+/* ==========================================================================
+   Seção Sobre Mim
+   ========================================================================== */
+#sobre > h2,
+#projetos > h2 {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-4xl);
+  color: var(--primary);
+  display: inline-block;
+  border-bottom: 4px solid var(--primary);
+  padding-bottom: 8px;
+  margin: 0 auto var(--spacing-2xl);
+  text-align: center;
+  letter-spacing: 0.8px;
+}
+
+.sobre-content {
+  display: flex;
+  gap: var(--spacing-2xl);
+  align-items: flex-start;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  width: 100%;
+  justify-content: center; /* Centraliza itens em telas menores */
+}
+
+.sobre-text {
+  flex: 1 1 450px;
+  text-align: left; /* Alinha texto à esquerda em telas maiores */
+}
+
+.sobre-text p {
+  margin-bottom: var(--spacing-md);
+  font-size: var(--font-size-lg);
+  color: var(--secondary);
+}
+
+.sobre-cards {
+  flex: 1 1 350px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.card-sobre {
+  background-color: var(--card-bg-dark);
+  padding: var(--spacing-lg) var(--spacing-xl);
+  border-radius: var(--border-radius-md);
+  transition: background-color var(--transition-medium), transform var(--transition-medium), box-shadow var(--transition-medium);
+  cursor: pointer;
+  box-shadow: var(--shadow-dark);
+}
+
+.card-sobre:hover {
+  background-color: var(--primary);
+  color: white;
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(0, 184, 148, 0.5);
+}
+.card-sobre:hover h3,
+.card-sobre:hover p {
+  color: white;
+}
+
+.card-sobre h3 {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--spacing-xs);
+  color: var(--text-dark);
+  transition: color var(--transition-medium);
+}
+
+.card-sobre p {
+  font-size: var(--font-size-md);
+  color: var(--secondary);
+  transition: color var(--transition-medium);
+}
+
+/* ==========================================================================
+   Seção Projetos (Neon Cards)
+   ========================================================================== */
+.projetos .cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-2xl);
+  padding: 0 var(--spacing-md);
+  max-width: 1200px;
+  width: 100%;
+}
+
+.card {
+  background-color: var(--card-bg-dark);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+  box-shadow: var(--shadow-dark);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 20px var(--primary), 0 0 40px var(--primary);
+}
+
+.card h3 {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-2xl);
+  color: var(--text-dark);
+  margin-bottom: var(--spacing-xs);
+}
+
+.card p {
+  font-size: var(--font-size-md);
+  color: var(--secondary);
+  margin-bottom: var(--spacing-md);
+  flex-grow: 1;
+}
+
+/* Tags Pills */
+.card .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-md);
+}
+.card .tags span {
+  background-color: rgba(0, 184, 148, 0.2);
+  color: var(--primary);
+  padding: 0.375rem 0.75rem;
+  font-size: var(--font-size-sm);
+  border-radius: 999px;
+  font-weight: 500;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+.card .tags span:hover {
+  background-color: var(--primary);
+  color: white;
+}
+
+/* Buttons dentro do card */
+.card .buttons {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-top: auto;
+}
+
+/* GitHub Outline */
+.card .buttons .极端的.github {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  background: transparent;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  padding: 0.625rem 1.25rem;
+  border-radius: var(--border-radius-md);
+  font-weight: 500;
+  transition: background var(--transition-medium), color var(--transition-medium), border var(--transition-medium);
+}
+.card .buttons .btn.github:hover {
+  background: var(--primary);
+  color: white;
+}
+
+/* Demo Fill */
+.card .buttons .btn.demo {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  background: var(--primary);
+  color: var(--text-light);
+  padding: 0.625rem 1.25rem;
+  border-radius: var(--border-radius-md);
+  font-weight: 500;
+  transition: background var(--transition-medium), transform var(--transition-fast);
+}
+.card .buttons .btn.demo:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+footer {
+  text-align: center;
+  padding: var(--spacing-xl);
+  background-color: var(--navbar-bg-dark);
+  color: var(--secondary);
+  font-size: var(--font-size-sm);
+  margin-top: var(--spacing-2xl);
+  box-shadow: var(--shadow-dark);
+  transition: background-color var(--transition-medium), box-shadow var(--transition-medium);
+}
+
+/* ==========================================================================
+   Media Queries para Responsividade
+   ========================================================================== */
+
+/* Extra Large devices (desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .section {
+    padding-left: var(--spacing-2xl);
+    padding-right: var(--spacing-2xl);
+  }
+  .home-text h1 {
+    font-size: var(--font-size-6xl); /* Maior em telas muito grandes */
+  }
+}
+
+/* Large devices (desktops, 992极端的 and up) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .navbar {
+    padding: var(--spacing-md) var(--spacing-xl);
+  }
+  .section {
+    padding: calc(var(--spacing-2xl) * 2 + 20px) var(--spacing-xl) var(--spacing-xl);
+  }
+  .section:not(:first-of-type)::before {
+    left: var(--spacing-xl);
+    right: var(--spacing-xl);
+  }
+  .home-text h1 {
+    font-size: var(--font-size-5xl);
+  }
+  .home-content, .sobre-content {
+    gap: var(--spacing-xl);
+  }
+  .projetos .cards {
+    gap: var(--spacing-xl);
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991px) {
+  html {
+    font-size: 15px; /* Reduz a base para rem em tablets */
+  }
+  .navbar {
+    padding: var(--spacing-md) var(--spacing-lg);
+  }
+  .section {
+    padding: calc(var(--spacing-2xl) * 2 + 10极端的) var(--spacing-lg) var(--spacing-lg);
+  }
+  .section:not(:first-of-type)::before {
+    left: var(--spacing-lg);
+    right: var(--spacing-lg);
+  }
+  .home-content {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--spacing-xl);
+  }
+  .home-text {
+    text-align: center;
+  }
+  .home-text h1 {
+    font-size: var(--font-size-4xl);
+  }
+  .home-buttons {
+    justify-content: center;
+  }
+  .social-icons-home {
+    justify-content: center; /* Centraliza os ícones quando o texto da home centraliza */
+  }
+  .social-icons-home a {
+    font-size: var(--icon-size-base); /* Tamanho base para tablets */
+  }
+  .profile-img {
+    max-width: 350px;
+    aspect-ratio: 350 / 420; /* Ajusta proporção para o novo max-width */
+  }
+  .sobre-content {
+    flex-direction: column;
+    gap: var(--spacing-xl);
+  }
+  .sobre-text, .sobre-cards {
+    width: 100%;
+    flex: none;
+    text-align: center; /* Centraliza texto em tablets */
+  }
+  .sobre-text p {
+    text-align: center;
+  }
+  .projetos .cards {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajusta min-width */
+    gap: var(--spacing-lg);
+    padding: 0 var(--spacing-xs);
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767px) {
+  html {
+    font-size: 14px; /* Reduz ainda mais a base para rem */
+  }
+  .navbar {
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+  .navbar nav ul { /* Menu mobile */
+    top: 60px;
+    right: var(--spacing-md);
+    width: calc(100% - var(--spacing-md) * 2);
+  }
+  .section {
+    padding: calc(var(--spacing-2xl) * 2) var(--spacing-md) var(--spacing-md);
+  }
+  .section:极端的(:first-of-type)::before {
+    left: var(--spacing-md);
+    right: var(--spacing-md);
+  }
+  .home-text h1 {
+    font-size: var(--font-size-3xl);
+  }
+  .social-icons-home {
+    justify-content: center;
+  }
+  .social极端的-home a {
+    font-size: var(--icon-size-base); /* Tamanho base para celulares maiores */
+  }
+  #sobre > h2, #projetos > h2 {
+    font-size: var(--font-size-3xl);
+  }
+  .profile-img {
+    max-width: 300px;
+    aspect-ratio: 300 / 360;
+  }
+  .projetos .cards {
+    grid-template-columns: 1fr; /* Uma coluna em celulares maiores */
+    gap: var(--spacing-lg);
+    padding: 0;
+  }
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575px) {
+  html {
+    font-size: 13px; /* Base menor para rem em telas muito pequenas */
+  }
+  .navbar {
+    padding: var(--spacing-sm) var(--spacing-sm);
+  }
+  .navbar nav ul { /* Menu mobile */
+    top: 55px;
+    right: var(--spacing-sm);
+    width: calc(100% - var(--spacing-sm) * 2);
+    padding: var(--spacing-md);
+  }
+  .menu-toggle {
+    display: block;
+  }
+  .navbar nav ul {
+    display: none;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+  .navbar nav ul.active {
+    display: flex;
+  }
+  .navbar nav ul li .contact-btn {
+    width: 100%;
+    text-align: center;
+  }
+  .section {
+    padding: calc(var(--spacing-2xl) * 2 - 10px) var(--spacing-sm) var(--spacing-sm);
+  }
+  .section:not(:first-of-type)::before {
+    left: var(--spacing-sm);
+    right: var(--spacing-sm);
+  }
+  .home-text h1 {
+    font-size: var(--font-size-2xl);
+  }
+  .home-text p {
+    font-size: var(--font-size-md);
+  }
+  .home-buttons {
+    flex-direction: column; /* Botões empilhados */
+    width: 100%;
+  }
+  .home-buttons .btn {
+    width: 100%;
+  }
+  .social-icons-home {
+    justify-content: center;
+    gap: var(--spacing-xs); /* Reduz o espaçamento entre eles */
+  }
+  .social-icons-home a {
+    font-size: var(--icon-size-sm); /* Tamanho menor para telas muito pequenas */
+  }
+  .profile-img {
+    max-width: 250px;
+    aspect-ratio: 250 / 300;
+  }
+  #sobre > h2, #projetos > h2 {
+    font-size: var(--font-size-2xl);
+  }
+  .sobre-text p {
+    font-size: var(--font-size-md);
+  }
+  .sobre-cards {
+    gap: var(--spacing-md);
+  }
+  .card-sobre h3 {
+    font-size: var(--font-size-lg);
+  }
+  .card-sobre p {
+    font-size: var(--font-size-sm);
+  }
+  .projetos .cards {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+    padding: 0;
+  }
+  .card h3 {
+    font-size: var(--font-size-xl);
+  }
+  .card p {
+    font-size: var(--font-size-md);
+  }
+  .card .buttons {
+    flex-direction: column; /* Botões de projeto empilhados */
+  }
+  .card .buttons .btn {
+    width: 100%;
+  }
+  footer {
+    padding: var(--spacing-md);
+  }
+}
