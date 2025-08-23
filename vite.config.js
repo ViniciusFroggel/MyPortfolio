@@ -1,8 +1,10 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  // base: '/meu-repo/', // Remover para deploy no Vercel
+  base: '/meu-repo/', // se for GitHub Pages
+  optimizeDeps: {
+    include: ['aos'] // <- força a inclusão do AOS no build
+  }
 });
