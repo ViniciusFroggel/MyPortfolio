@@ -4,21 +4,20 @@ import Home from './components/Home';
 import About from './components/About';
 import Projects from './components/Projects';
 import Footer from './components/Footer';
-import AOS from 'aos'; // Importa AOS
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // Importa os estilos do AOS
 
 function App() {
-  // Inicializa AOS
   useEffect(() => {
     AOS.init({
       duration: 1000,
       once: true,
       easing: 'ease',
     });
-  }, []); // Executa apenas uma vez ao montar o componente
+  }, []);
 
   return (
     <>
-      {/* Navbar agora receberá toggleTheme e currentTheme via Context */}
       <Navbar />
       <Home />
       <About />
