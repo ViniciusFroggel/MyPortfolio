@@ -12,7 +12,7 @@ const Home = () => {
             <a href="#projetos" className="btn primary">Ver Projetos</a>
             <a
               href="/Curriculo.pdf"
-              download="Curriculo_Vinicius.pdf"
+              download="Curriculo.pdf"
               className="btn"
               target="_blank"
               rel="noopener noreferrer"
