@@ -10,9 +10,15 @@ const Home = () => {
           <p>Formado em Engenharia de Software com paixão por backend, full-stack e soluções criativas. Focado em construir sistemas robustos e escaláveis para a web moderna.</p>
           <div className="home-buttons">           
             <a href="#projetos" className="btn primary">Ver Projetos</a>
-            <a href="/curriculo.pdf" download="Curriculo-vinicius.pdf" className="btn primary">
-      📄 Baixar Currículo
-    </a>
+            <a
+              href="/Curriculo.pdf"
+              download="Curriculo_Vinicius.pdf"
+              className="btn"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Baixar Currículo
+            </a>
           </div>
           <div className="social-icons-home">
             <a href="https://www.instagram.com/viniciusfroggel/" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-instagram"></i></a>
