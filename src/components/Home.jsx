@@ -10,7 +10,7 @@ const Home = () => {
           <p>Formado em Engenharia de Software com paixão por backend, full-stack e soluções criativas. Focado em construir sistemas robustos e escaláveis para a web moderna.</p>
           <div className="home-buttons">           
             <a href="#projetos" className="btn primary">Ver Projetos</a>
-            <a href="curriculo.pdf" download="Curriculo.pdf" className="btn primary">
+            <a href="/curriculo.pdf" download="Curriculo-vinicius.pdf" className="btn primary">
       📄 Baixar Currículo
     </a>
           </div>
