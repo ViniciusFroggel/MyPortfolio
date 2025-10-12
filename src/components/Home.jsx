@@ -8,9 +8,11 @@ const Home = () => {
         <div className="home-text">
           <h1><span>Vinicius</span> | Software Engineer</h1>
           <p>Formado em Engenharia de Software com paixão por backend, full-stack e soluções criativas. Focado em construir sistemas robustos e escaláveis para a web moderna.</p>
-          <div className="home-buttons">
-            
+          <div className="home-buttons">           
             <a href="#projetos" className="btn primary">Ver Projetos</a>
+            <a href="/curriculo.pdf" download="Curriculo-Vinicius.pdf" className="btn primary">
+      📄 Baixar Currículo
+    </a>
           </div>
           <div className="social-icons-home">
             <a href="https://www.instagram.com/viniciusfroggel/" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-instagram"></i></a>
