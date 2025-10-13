@@ -44,7 +44,7 @@ const Navbar = () => {
       </div>
 
       <div className="theme-toggle" onClick={toggleTheme}>
-        {theme === 'light' ? '🌞' : '🌙'}
+        {theme === 'light' ? '🌞' : '🌑'}
       </div>
     </header>
   );
