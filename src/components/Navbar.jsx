@@ -32,9 +32,9 @@ const Navbar = () => {
             </a>
           </li>
           <li>
-             <div className="theme-toggle" onClick={toggleTheme}>
-        {theme === 'light' ? '🌞' : '🌑'}
-      </div>
+            <a href="#contato" className="contact-btn" onClick={handleNavLinkClick}>
+              Entre em Contato
+            </a>
           </li>
         </ul>
       </nav>
@@ -42,10 +42,10 @@ const Navbar = () => {
       <div className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
         ☰
       </div>
-
-     <a href="#contato" className="contact-btn" onClick={handleNavLinkClick}>
-              Entre em Contato
-            </a>
+      <div className="theme-toggle" onClick={toggleTheme}>
+        {theme === 'light' ? '🌞' : '🌑'}
+      </div>  
+     
     </header>
   );
 };
