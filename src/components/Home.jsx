@@ -1,4 +1,7 @@
 import React from 'react';
+import { FaInstagram, FaLinkedin, FaGithub } from 'react-icons/fa';
+import { HiOutlineMail } from 'react-icons/hi';
+
 
 const Home = () => {
   return (
@@ -19,12 +22,21 @@ const Home = () => {
               Baixar Currículo
             </a>
           </div>
-          <div className="social-icons-home">
-            <a href="https://www.instagram.com/viniciusfroggel/" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-instagram"></i></a>
-            <a href="https://www.linkedin.com/in/viniciusfroggel/" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-linkedin"></i></a>
-            <a href="https://github.com/ViniciusFroggel" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-github"></i></a>
-            <a href="mailto:seuemail@example.com"><i className="fa-solid fa-envelope"></i></a>
-          </div>
+         <div className="social-icons-home flex gap-4 mt-4">
+  <a href="https://www.instagram.com/viniciusfroggel/" target="_blank" rel="noopener noreferrer">
+    <FaInstagram size={30} />
+  </a>
+  <a href="https://www.linkedin.com/in/viniciusfroggel/" target="_blank" rel="noopener noreferrer">
+    <FaLinkedin size={30} />
+  </a>
+  <a href="https://github.com/ViniciusFroggel" target="_blank" rel="noopener noreferrer">
+    <FaGithub size={30} />
+  </a>
+  <a href="mailto:seuemail@example.com">
+    <HiOutlineMail size={30} />
+  </a>
+</div>
+
         </div>
         <div className="home-img" data-aos="fade-left">
           {/* Usando caminho direto da pasta public */}
