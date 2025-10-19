@@ -10,7 +10,7 @@ const Projects = () => {
       demo: "https://crud-clientes-vktg.onrender.com",
       github: "https://github.com/ViniciusFroggel/crud-clientes",
       topics: ["PHP", "PostgreSQL", "Docker"],
-      image: "/img/crud-clientes.jpg",
+      image: "/img/teste.jpg",
     },
     {
       id: 2,
@@ -19,7 +19,7 @@ const Projects = () => {
       demo: "#",
       github: "#",
       topics: ["React", "API"],
-      image: "/images/projeto2.jpg",
+      image: "/img/projeto2.jpg",
     },
     {
       id: 3,
@@ -28,7 +28,7 @@ const Projects = () => {
       demo: "#",
       github: "#",
       topics: ["Node", "Express"],
-      image: "/images/projeto3.jpg",
+      image: "/img/projeto3.jpg",
     },
   ];
 
