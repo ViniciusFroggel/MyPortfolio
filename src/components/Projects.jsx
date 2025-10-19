@@ -9,6 +9,7 @@ const Projects = () => {
       demo: "https://crud-clientes-vktg.onrender.com",
       github: "https://github.com/ViniciusFroggel/crud-clientes",
       topics: ["PHP", "PostgreSQL", "Docker"]
+      image: "../assets/img/crud-clientes.jpg"
     },
     {
       id: 2,
@@ -47,7 +48,7 @@ const Projects = () => {
               </a>
               {project.demo && (
                 <a href={project.demo} target="_blank" rel="noopener noreferrer" className="btn demo">
-                  Demo
+                  Site
                 </a>
               )}
             </div>
