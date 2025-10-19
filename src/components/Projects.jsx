@@ -1,74 +1,58 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 const Projects = () => {
-  const [projects, setProjects] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        const response = await fetch('https://api.github.com/users/ViniciusFroggel/repos');
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        const filteredProjects = data
-          .filter(repo => !repo.fork && repo.description)
-          .map(repo => ({
-            id: repo.id,
-            name: repo.name,
-            description: repo.description,
-            html_url: repo.html_url,
-            homepage: repo.homepage,
-            topics: repo.topics || [],
-          }));
-
-        setProjects(filteredProjects);
-      } catch (err) {
-        setError(err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchProjects();
-  }, []);
-
-  if (loading) return <p style={{ textAlign: 'center', fontSize: '1.5rem', marginTop: '50px' }}>Carregando projetos...</p>;
-  if (error) return <p style={{ textAlign: 'center', fontSize: '1.5rem', marginTop: '50px', color: 'red' }}>Erro ao carregar projetos: {error.message}</p>;
+  const projects = [
+    {
+      id: 1,
+      name: "CRUD de Clientes",
+      description: "Sistema completo de cadastro, edição e exclusão de clientes com PHP + PostgreSQL, hospedado no Render.",
+      demo: "https://crud-clientes-vktg.onrender.com",
+      github: "https://github.com/ViniciusFroggel/crud-clientes",
+      topics: ["PHP", "PostgreSQL", "CRUD", "Render"]
+    },
+    {
+      id: 2,
+      name: "Projeto 2",
+      description: "Descrição breve do projeto 2.",
+      demo: "#",
+      github: "#",
+      topics: ["React", "API"]
+    },
+    {
+      id: 3,
+      name: "Projeto 3",
+      description: "Descrição breve do projeto 3.",
+      demo: "#",
+      github: "#",
+      topics: ["Node", "Express"]
+    },
+  ];
 
   return (
     <section id="projetos" className="section projetos" data-aos="fade-up">
       <h2>Meus Projetos</h2>
       <div className="cards">
-        {projects.length > 0 ? (
-          projects.map(project => (
-            <div className="card" key={project.id} data-aos="zoom-in">
-              <h3>{project.name}</h3>
-              <p>{project.description}</p>
-              {project.topics.length > 0 && (
-                <div className="tags">
-                  {project.topics.map(topic => (
-                    <span key={topic}>{topic}</span>
-                  ))}
-                </div>
-              )}
-              <div className="buttons">
-                <a href={project.html_url} target="_blank" rel="noopener noreferrer" className="btn github">
-                  <i className="fa-brands fa-github"></i> GitHub
-                </a>
-                {project.homepage && (
-                  <a href={project.homepage} target="_blank" rel="noopener noreferrer" className="btn demo">
-                    Demo
-                  </a>
-                )}
-              </div>
+        {projects.map(project => (
+          <div className="card" key={project.id} data-aos="zoom-in">
+            <h3>{project.name}</h3>
+            <p>{project.description}</p>
+            <div className="tags">
+              {project.topics.map(topic => (
+                <span key={topic}>{topic}</span>
+              ))}
             </div>
-          ))
-        ) : (
-          <p style={{ textAlign: 'center', fontSize: '1.2rem', color: 'var(--secondary)' }}>Nenhum projeto encontrado ou filtrado.</p>
-        )}
+            <div className="buttons">
+              <a href={project.github} target="_blank" rel="noopener noreferrer" className="btn github">
+                <i className="fa-brands fa-github"></i> GitHub
+              </a>
+              {project.demo && (
+                <a href={project.demo} target="_blank" rel="noopener noreferrer" className="btn demo">
+                  Demo
+                </a>
+              )}
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
