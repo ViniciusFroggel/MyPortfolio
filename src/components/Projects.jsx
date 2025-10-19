@@ -8,7 +8,7 @@ const Projects = () => {
       description: "Sistema completo de cadastro, edição e exclusão de clientes com PHP + PostgreSQL, hospedado no Render.",
       demo: "https://crud-clientes-vktg.onrender.com",
       github: "https://github.com/ViniciusFroggel/crud-clientes",
-      topics: ["PHP", "PostgreSQL", "CRUD", "Render"]
+      topics: ["PHP", "PostgreSQL", "Docker"]
     },
     {
       id: 2,
