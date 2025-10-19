@@ -10,7 +10,7 @@ const Projects = () => {
       demo: "https://crud-clientes-vktg.onrender.com",
       github: "https://github.com/ViniciusFroggel/crud-clientes",
       topics: ["PHP", "PostgreSQL", "Docker"],
-      image: "/images/crud-clientes.jpg",
+      image: "/img/crud-clientes.jpg",
     },
     {
       id: 2,
