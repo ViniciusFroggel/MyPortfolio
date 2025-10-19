@@ -1,5 +1,4 @@
 import React from 'react';
-import profileImg from '../assets/img/foto.png'; // Importa a imagem
 
 const Home = () => {
   return (
@@ -28,7 +27,8 @@ const Home = () => {
           </div>
         </div>
         <div className="home-img" data-aos="fade-left">
-          <img src={profileImg} alt="Foto Vinicius" class="profile-img" />
+          {/* Usando caminho direto da pasta public */}
+          <img src="/img/foto.png" alt="Foto Vinicius" className="profile-img" />
         </div>
       </div>
     </section>
