@@ -1,7 +1,4 @@
 import React from "react";
-import crudClientesImg from "../assets/img/crud-clientes.jpg";
-import projeto2Img from "../assets/img/projeto2.jpg";
-import projeto3Img from "../assets/img/projeto3.jpg"; // caso tenha imagem, senão pode remover
 
 const Projects = () => {
   const projects = [
@@ -13,7 +10,7 @@ const Projects = () => {
       demo: "https://crud-clientes-vktg.onrender.com",
       github: "https://github.com/ViniciusFroggel/crud-clientes",
       topics: ["PHP", "PostgreSQL", "Docker"],
-      image: crudClientesImg,
+      image: "/images/crud-clientes.jpg",
     },
     {
       id: 2,
@@ -22,7 +19,7 @@ const Projects = () => {
       demo: "#",
       github: "#",
       topics: ["React", "API"],
-      image: projeto2Img,
+      image: "/images/projeto2.jpg",
     },
     {
       id: 3,
@@ -31,7 +28,7 @@ const Projects = () => {
       demo: "#",
       github: "#",
       topics: ["Node", "Express"],
-      image: projeto3Img,
+      image: "/images/projeto3.jpg",
     },
   ];
 
@@ -48,7 +45,13 @@ const Projects = () => {
               backgroundImage: project.image ? `url(${project.image})` : undefined,
               backgroundSize: "cover",
               backgroundPosition: "center",
-              color: "#fff", // texto visível sobre a imagem
+              color: "#fff",
+              padding: "20px",
+              borderRadius: "12px",
+              minHeight: "300px",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
             }}
           >
             <h3>{project.name}</h3>
