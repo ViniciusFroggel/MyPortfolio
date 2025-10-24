@@ -1,4 +1,6 @@
+# ========================
 # Logs
+# ========================
 logs
 *.log
 npm-debug.log*
@@ -7,15 +9,20 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
+# ========================
+# Node modules / build
+# ========================
+node_modules/
+dist/
+dist-ssr/
 *.local
 
-# Editor directories and files
-.vscode/*
+# ========================
+# Editor directories / system files
+# ========================
+.vscode/
 !.vscode/extensions.json
-.idea
+.idea/
 .DS_Store
 *.suo
 *.ntvs*
@@ -23,5 +30,8 @@ dist-ssr
 *.sln
 *.sw?
 
-.vercel
+# ========================
+# Vercel / environment
+# ========================
+.vercel/
 .env
