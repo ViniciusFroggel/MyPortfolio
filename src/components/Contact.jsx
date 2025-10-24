@@ -1,13 +1,9 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import './contact.css'; // crie um arquivo separado ou use global CSS
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [status, setStatus] = useState('');
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -15,62 +11,71 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
-
+    setStatus('Enviando...');
     try {
-      const res = await fetch("http://localhost:5000/send", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+      const res = await fetch('http://localhost:5000/send', { // ou endpoint de produção
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
       });
-
-      if (res.ok) {
-        alert("Mensagem enviada com sucesso!");
-        setFormData({ name: "", email: "", message: "" });
+      const data = await res.json();
+      if (data.success) {
+        setStatus('Mensagem enviada com sucesso!');
+        setFormData({ name: '', email: '', message: '' });
       } else {
-        alert("Erro ao enviar a mensagem. Tente novamente.");
+        setStatus('Erro ao enviar a mensagem.');
       }
-    } catch (error) {
-      console.error("Erro ao conectar com o servidor:", error);
-      alert("Erro de conexão. Verifique o backend.");
-    } finally {
-      setLoading(false);
+    } catch (err) {
+      console.error(err);
+      setStatus('Erro ao enviar a mensagem.');
     }
   };
 
   return (
-    <section id="contact" className="contact-section">
-      <h2>Entre em Contato</h2>
-      <p>Gostou do meu trabalho? Envie uma mensagem!</p>
-      <form className="contact-form" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="name"
-          placeholder="Seu nome"
-          value={formData.name}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Seu e-mail"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-        <textarea
-          name="message"
-          placeholder="Digite sua mensagem..."
-          rows="5"
-          value={formData.message}
-          onChange={handleChange}
-          required
-        ></textarea>
-        <button type="submit" disabled={loading}>
-          {loading ? "Enviando..." : "Enviar Mensagem"}
-        </button>
-      </form>
+    <section id="contato" className="contact-section">
+      <div className="section-divider"></div> {/* separador visual */}
+      <div className="container mx-auto px-4 py-16">
+        <h2 className="text-3xl font-bold mb-6 text-center">Entre em Contato</h2>
+
+        <form
+          onSubmit={handleSubmit}
+          className="bg-gray-800 p-8 rounded-lg shadow-lg max-w-lg mx-auto flex flex-col gap-4"
+        >
+          <input
+            type="text"
+            name="name"
+            placeholder="Seu nome"
+            value={formData.name}
+            onChange={handleChange}
+            className="p-3 rounded bg-gray-700 border border-gray-600 text-white"
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Seu email"
+            value={formData.email}
+            onChange={handleChange}
+            className="p-3 rounded bg-gray-700 border border-gray-600 text-white"
+            required
+          />
+          <textarea
+            name="message"
+            placeholder="Sua mensagem"
+            value={formData.message}
+            onChange={handleChange}
+            className="p-3 rounded bg-gray-700 border border-gray-600 text-white h-32 resize-none"
+            required
+          />
+          <button
+            type="submit"
+            className="bg-blue-600 hover:bg-blue-700 transition-colors p-3 rounded font-bold text-white"
+          >
+            Enviar Mensagem
+          </button>
+          {status && <p className="text-center mt-2">{status}</p>}
+        </form>
+      </div>
     </section>
   );
 };
