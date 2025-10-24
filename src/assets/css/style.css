@@ -528,33 +528,63 @@ body.light-theme .social-icons-home a:hover {
   background: var(--primary);
   color: white;
 }
+
+/* Demo Fill */
+.card .buttons .btn.demo {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  background: var(--primary);
+  color: var(--text-light);
+  padding: 0.625rem 1.25rem;
+  border-radius: var(--border-radius-md);
+  font-weight: 500;
+  transition: background var(--transition-medium), transform var(--transition-fast);
+}
+.card .buttons .btn.demo:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+}
 /* ==============================
    SEÇÃO DE CONTATO
    ============================== */
-.contact-section {
+#contato {
   background-color: var(--bg-dark, #1a1a2e);
   color: #fff;
-  padding: 4rem 1rem;
-  text-align: center;
+  padding: 6rem 1rem; /* mais espaçamento para centralizar verticalmente */
   font-family: "Poppins", sans-serif;
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh; /* garante que fique centralizado verticalmente */
 }
 
-.contact-section h2 {
-  font-size: 2rem;
+#contato h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
   margin-bottom: 0.5rem;
+  color: #00ff7f; /* verde de subtítulo (pode ajustar conforme padrão da página) */
 }
 
-.contact-section p {
+#contato p {
+  font-size: 1.2rem;
   color: #ccc;
   margin-bottom: 2rem;
 }
 
+/* FORMULÁRIO */
 .contact-form {
+  width: 100%;
   max-width: 500px;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  margin: 0 auto;
 }
 
 .contact-form input,
@@ -589,24 +619,21 @@ body.light-theme .social-icons-home a:hover {
   background: #0090db;
 }
 
-/* Demo Fill */
-.card .buttons .btn.demo {
-  flex: 1;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--spacing-xs);
-  background: var(--primary);
-  color: var(--text-light);
-  padding: 0.625rem 1.25rem;
-  border-radius: var(--border-radius-md);
-  font-weight: 500;
-  transition: background var(--transition-medium), transform var(--transition-fast);
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  #contato h2 {
+    font-size: 2rem;
+  }
+
+  #contato p {
+    font-size: 1rem;
+  }
+
+  .contact-form {
+    padding: 0 1rem;
+  }
 }
-.card .buttons .btn.demo:hover {
-  background: var(--primary-hover);
-  transform: translateY(-2px);
-}
+
 
 /* ==========================================================================
    Footer
