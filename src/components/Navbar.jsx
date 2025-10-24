@@ -20,11 +20,7 @@ const Navbar = () => {
           <li><a href="#sobre" onClick={handleNavLinkClick}>Sobre</a></li>
           <li><a href="#projetos" onClick={handleNavLinkClick}>Projetos</a></li>
           <li><a href="#contato" className="contact-btn" onClick={handleNavLinkClick}>Entre em Contato</a></li>
-          <li>
-            <button onClick={toggleTheme} className="theme-toggle">
-              {theme === 'light' ? '🌞' : '🌑'}
-            </button>
-          </li>
+
         </ul>
       </nav>
 
