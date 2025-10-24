@@ -1,4 +1,4 @@
-import './assets/css/style.css';
+import '../assets/css/style.css';
 import React, { useState } from 'react';
 import { useTheme } from '../context/ThemeContext';
 import { FaTimes } from 'react-icons/fa';
