@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './contact.css'; // crie um arquivo separado ou use global CSS
+import '../assets/css/style.css'; // crie um arquivo separado ou use global CSS
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
