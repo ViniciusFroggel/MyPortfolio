@@ -9,7 +9,7 @@ const Home = () => {
       <div className="home-content">
         <div className="home-text">
           <h1><span>Vinicius</span> | Software Engineer</h1>
-          <p>Formado em Engenharia de Software com paixão por backend, full-stack e soluções criativas. Focado em construir sistemas robustos e escaláveis para a web moderna.</p>
+          <p>Engenheiro de Software com foco em Backend e especialização em DevOps. Experiência no desenvolvimento de APIs robustas e automações de processos, focado na implementação de pipelines de CI/CD e gerenciamento de infraestrutura. Comprometido em construir sistemas escaláveis, performáticos e prontos para produção.</p>
           <div className="home-buttons">           
             <a href="#projetos" className="btn primary">Ver Projetos</a>
             <a
