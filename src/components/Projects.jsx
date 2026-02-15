@@ -13,14 +13,15 @@ const Projects = () => {
       image: "/img/teste.jpg",
     },
     {
-      id: 2,
-      name: "Projeto 2",
-      description: "Descrição breve do projeto 2.",
-      demo: "#",
-      github: "#",
-      topics: ["React", "API"],
-      image: "/img/projeto2.jpg",
-    },
+      id: 2, // ou o próximo ID disponível
+      name: "Agente de Vendas IA",
+      description:
+        "Agente inteligente que processa e-mails recebidos, classifica prioridades e sugere respostas automáticas usando Gemini 3 Flash e Next.js.",
+      demo: "https://ai-sales-agent-ashy.vercel.app",
+      github: "https://github.com/ViniciusFroggel/ai-sales-agent",
+      topics: ["Next.js", "Gemini IA", "Prisma", "PostgreSQL"],
+      image: "/img/ai-agent.jpg", // Lembre-se de salvar um print do dashboard nesta pasta
+},,
     {
       id: 3,
       name: "Projeto 3",
