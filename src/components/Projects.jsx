@@ -18,7 +18,7 @@ const Projects = () => {
       description:
         "Agente inteligente que processa e-mails recebidos, classifica prioridades e sugere respostas automáticas usando Gemini 3 Flash e Next.js.",
       demo: "https://ai-sales-agent-ashy.vercel.app",
-      github: "https://github.com/ViniciusFroggel/ai-sales-agent",
+      github: "https://github.com/ViniciusFroggel/AgentAI",
       topics: ["Next.js","TypeScript", "Gemini IA", "Prisma", "PostgreSQL", "CI/CD"],
       image: "/img/images.jpg", // Lembre-se de salvar um print do dashboard nesta pasta
 },,
