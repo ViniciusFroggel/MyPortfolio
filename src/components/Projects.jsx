@@ -3,14 +3,14 @@ import React from "react";
 const Projects = () => {
   const projects = [
     {
-      id: 1,
-      name: "CRUD de Clientes",
+      id: 1, // Incremente o ID conforme sua lista
+      name: "API REST Estruturada",
       description:
-        "Sistema completo de cadastro, edição e exclusão de clientes com PHP + PostgreSQL, hospedado no Render.",
-      demo: "https://crud-clientes-vktg.onrender.com",
-      github: "https://github.com/ViniciusFroggel/crud-clientes",
-      topics: ["PHP", "PostgreSQL", "Docker"],
-      image: "/img/teste.jpg",
+        "Desenvolvimento de uma API REST robusta utilizando Node.js e Express, focada em boas práticas de roteamento e persistência de dados.",
+      demo: "", // Geralmente APIs não têm interface visual direta, então mantemos apenas o GitHub
+      github: "https://github.com/ViniciusFroggel/API-rest",
+      topics: ["C#", "ASP.NET", "JWT", "Swagger", "DTO"],
+      image: "/img/teste.jpg", // Sugestão: Use um print do Insomnia, Postman ou do código das rotas
     },
     {
       id: 2, // ou o próximo ID disponível
