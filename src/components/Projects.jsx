@@ -6,7 +6,7 @@ const Projects = () => {
       id: 1, // Incremente o ID conforme sua lista
       name: "API-rest",
       description:
-        "Desenvolvimento de uma API REST robusta utilizando Node.js e Express, focada em boas práticas de roteamento e persistência de dados.",
+        "API REST robusta para gerenciamento de barbearia com autenticação JWT, controle de acesso por Roles (Cliente/Funcionário) e documentação Swagger.",
       demo: "", // Geralmente APIs não têm interface visual direta, então mantemos apenas o GitHub
       github: "https://github.com/ViniciusFroggel/API-rest",
       topics: ["C#", "ASP.NET", "JWT", "Swagger", "DTO"],
