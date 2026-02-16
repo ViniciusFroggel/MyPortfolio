@@ -24,12 +24,13 @@ const Projects = () => {
 },,
     {
       id: 3,
-      name: "Projeto 3",
-      description: "Descrição breve do projeto 3.",
-      demo: "#",
-      github: "#",
-      topics: ["Node", "Express"],
-      image: "/img/projeto3.jpg",
+      name: "Infraestrutura Kubernetes & HPA",
+      description:
+        "Arquitetura de cluster multi-node resiliente com auto-scaling (HPA) e monitoramento via Kubernetes Dashboard.",
+      demo: "", // Deixe vazio pois é infraestrutura, o botão 'Site' não aparecerá
+      github: "https://github.com/ViniciusFroggel/Kubernetes-project",
+      topics: ["Kubernetes", "Docker", "DevOps", "HPA", "SRE"],
+      image: "/img/kubernetes-infra.jpg", // Lembre de salvar um print do dashboard com este nome
     },
   ];
 
